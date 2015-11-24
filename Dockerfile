@@ -32,9 +32,8 @@ COPY . ./
 ADD github_ssh_config /root/.ssh/config
 
 # cleanup files on disk and set the actionhooks directory
-RUN chmod 700 /root/.ssh/config && rm -f /opt/webapp/github_ssh_config 
-RUN mv /opt/webapp/actionhooks/* /opt/actionhooks/ && chmod 777 /opt/actionhooks && rm -rf /opt/webapp/actionhooks
-RUN rm -f /opt/webapp/Dockerfile
+RUN chmod 700 /root/.ssh/config 
+RUN cp /opt/webapp/actionhooks/* /opt/actionhooks/ && chmod 777 /opt/actionhooks
 
 # Expose port 3000 to the Docker host, so we can access it 
 # from the outside.

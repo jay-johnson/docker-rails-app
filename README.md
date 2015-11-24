@@ -31,6 +31,12 @@ ed72180c1c65        demo-rails         "/bin/sh -c /opt/acti"   6 seconds ago   
 docker-rails-app$ 
 ```
 
+### How to ssh into the container
+
+```
+docker exec -t -i demo-rails /bin/bash
+```
+
 ### How to stop
 
 ```
