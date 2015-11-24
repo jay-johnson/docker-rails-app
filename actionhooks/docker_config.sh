@@ -1,0 +1,45 @@
+# Set these up for a new repository for use with Docker
+imageusername="jayjohnson"
+imagerepoondisk="/opt/devwebapp"
+imagerepo="git@github.com:jay-johnson/sample-rails-app.git"
+imageinstalldir="/opt/webapp"
+imageappname="demo"
+imageexposedhost="0.0.0.0"
+imageexposedport="3000"
+imageinternalport="3000"
+imagedeploybranch="master"
+imagedeploytag=""
+imagerepokeyfile="/opt/docker-onboarding/rails/repokey/sample-rails-app-key"
+imagebuildtempdir="/tmp/repoclone"
+
+imagename="$imageappname-$imagedeploybranch"
+if [ "$imagedeploytag" != "" ]; then
+    imagename="$imageappname-$imagedeploybranch-$imagedeploytag"
+fi 
+
+# Common Action Hooks
+dockerhooks="/opt/actionhooks"
+preinstallhook="$dockerhooks/preinstall.sh"
+postinstallhook="$dockerhooks/postinstall.sh"
+prestarthook="$dockerhooks/prestart.sh"
+poststarthook="$dockerhooks/poststart.sh"
+starthook="$dockerhooks/start.sh"
+pullrestarthook="$dockerhooks/pull_and_restart.sh"
+repostatushook="$dockerhooks/git_status.sh"
+
+# Specific Docker Installers for the new 1.9 and Swarm
+dockerversion="1.9.0"
+dockermachineversion="v0.5.0"
+dockercomposeversion="1.5.1"
+dockerswarmversion="1.0.0"
+swarmdiscoveryport="4000"
+swarmhostport="4500"
+dockerdiscoveryport="2375"
+uniqueswarmprefix="swarmnodes"
+consulclusterhostlist="swarm1.internallevvel.com swarm2.internallevvel.com swarm3.internallevvel.com"
+extswarmnodes="extswarm1.levveldockerswarm.com extswarm2.levveldockerswarm.com extswarm3.levveldockerswarm.com"
+goworkspacepath="/opt/goworkspace/"
+consulversion="0.5.2"
+consuldiscoveryport="8500"
+ansibleusername="jayjohnson"
+ansibleimagename="ansiblebuilder"
