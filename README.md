@@ -32,8 +32,8 @@ docker-rails-app$
 ### How to stop
 
 ```
-docker-rails-app$ docker stop demo-master
-demo-master
+docker-rails-app$ docker stop demo-rails
+demo-rails
 docker-rails-app$
 ```
 
