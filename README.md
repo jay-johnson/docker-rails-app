@@ -1,4 +1,6 @@
-## Rails Application that has extend hooks for use with Docker and Travis 
+## Rails app with internal container hooks for Docker and Travis 
+
+This repository is an example for showing how to setup a local developer rails application running in a container
 
 ### Install
 
