@@ -29,6 +29,14 @@ ed72180c1c65        demo-rails         "/bin/sh -c /opt/acti"   6 seconds ago   
 docker-rails-app$ 
 ```
 
+### How to stop
+
+```
+docker-rails-app$ docker stop demo-master
+demo-master
+docker-rails-app$
+```
+
 ### Confirm the application is hosting the welcome page
 
 ```
