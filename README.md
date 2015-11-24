@@ -45,6 +45,12 @@ demo-rails
 docker-rails-app$
 ```
 
+### How to stop, remove, build, and start
+
+```
+$ docker stop demo-rails; docker rm demo-rails; docker build -t demo-rails .; docker run -it -d --publish 0.0.0.0:3000:3000 --name=demo-rails demo-rails
+```
+
 ### Confirm the application is hosting the welcome page
 
 ```
