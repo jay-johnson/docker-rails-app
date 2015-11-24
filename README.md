@@ -62,6 +62,21 @@ docker-rails-app$ curl http://localhost:3000/welcome/index | grep Hello
 docker-rails-app$ 
 ```
 
+### Pulling the latest from inside a running container
+
+```
+root@b4f1ab122d82:/opt/webapp# git pull
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/jay-johnson/docker-rails-app
+   63aba06..ca307ad  master     -> origin/master
+First, rewinding head to replay your work on top of it...
+Fast-forwarded master to ca307ada38bdae1a07a96d808166dac7381da630.
+root@b4f1ab122d82:/opt/webapp# 
+```
+
 ### View the App
 
 Open a browser for:
