@@ -1,4 +1,4 @@
-## Rails app with internal container hooks for Docker and Travis 
+## Local Rails Development running in Docker and integrated with Travis 
 
 This repository is an example for showing how to setup a local development environment with docker hosting a rails application running inside a container image
 
