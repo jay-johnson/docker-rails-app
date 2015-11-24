@@ -1,5 +1,5 @@
 Host github.com
-    IdentityFile ~/.ssh/repokey_rsa
+    IdentityFile ~/.ssh/id_rsa
     User git
     HostName github.com
     StrictHostKeyChecking no    
