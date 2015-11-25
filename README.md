@@ -103,3 +103,40 @@ http://localhost:3000/welcome/index
 bundle exec rake test TEST=test/controllers/hello_world_test.rb
 ```
 
+### Setting up Travis CI with an after_success hook
+
+1. Authentication
+
+  Travis needs to know how to authenticate with the repository account on Docker Hub. You can either set these as environment variables on the repository in Travis or encrypt them:
+
+  ```
+  $ gem install travis
+  $ travis encrypt DOCKER_EMAIL=email@gmail.com
+  $ travis encrypt DOCKER_USERNAME=username
+  $ travis encrypt DOCKER_PASSWORD=password
+  ```
+
+1. Add the credentials to the .travis.yml file as
+
+  ```
+  env:
+    global:
+      - secure: "UkF2CHX0lUZ...VI/LE=" # DOCKER_EMAIL
+      - secure: "Z3fdBNPt5hR...VI/LE=" # DOCKER_USER
+      - secure: "F4XbD6WybHC...VI/LE=" # DOCKER_PASS
+      - COMMIT=${TRAVIS_COMMIT::8}
+  ```
+
+1. Add the after_success to the .travis.yml
+
+  ```
+  after_success:
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+    - export REPO=<you repo name>/<your container image name>
+    - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+    - docker build -f Dockerfile -t $REPO:$COMMIT .
+    - docker tag $REPO:$COMMIT $REPO:$TAG
+    - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+    - docker push $REPO
+  ```
+
