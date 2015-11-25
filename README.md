@@ -122,8 +122,8 @@ bundle exec rake test TEST=test/controllers/hello_world_test.rb
   env:
     global:
       - secure: "UkF2CHX0lUZ...VI/LE=" # DOCKER_EMAIL
-      - secure: "Z3fdBNPt5hR...VI/LE=" # DOCKER_USER
-      - secure: "F4XbD6WybHC...VI/LE=" # DOCKER_PASS
+      - secure: "Z3fdBNPt5hR...VI/LE=" # DOCKER_USERNAME
+      - secure: "F4XbD6WybHC...VI/LE=" # DOCKER_PASSWORD
       - COMMIT=${TRAVIS_COMMIT::8}
   ```
 
