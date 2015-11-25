@@ -20,6 +20,16 @@ $
 docker build -t demo-rails .
 ```
 
+### How to use the existing image
+
+The latest Docker image is also stored publicly on Docker Hub: https://hub.docker.com/r/jayjohnson/rails-app/
+
+Pull the latest with:
+
+```
+docker pull jayjohnson/rails-app
+```
+
 ### How to run
 
 ```
