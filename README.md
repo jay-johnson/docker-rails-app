@@ -1,5 +1,7 @@
 ## Local Rails Development running in Docker and integrated with Travis 
 
+[![Travis](https://travis-ci.org/jay-johnson/docker-rails-app.svg)](https://travis-ci.org/jay-johnson/docker-rails-app.svg)
+
 This repository is an example for showing how to setup a local development environment with docker hosting a rails application running inside a container image
 
 ### Install
