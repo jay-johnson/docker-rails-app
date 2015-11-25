@@ -1,5 +1,5 @@
 FROM ruby:2.2 
-MAINTAINER marko@codeship.com
+MAINTAINER jay.p.h.johnson@gmail.com
 
 # Install apt based dependencies required to run Rails as 
 # well as RubyGems. As the Ruby image itself is based on a 
