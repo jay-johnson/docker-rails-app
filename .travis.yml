@@ -6,6 +6,7 @@ services:
   - docker
 
 before_install:
+  - docker login -e=$DOCKER_EMAIL -u=$DOCKER_USER -p=$DOCKER_PASS
   - docker build -t build-developer-rails-app .
   - docker run -it -d --publish 0.0.0.0:3000:3000 --name=build-developer-rails-app build-developer-rails-app
   - docker ps -a
@@ -17,7 +18,7 @@ script:
 after_success:
   - echo "Test Success - Branch($TRAVIS_BRANCH) Pull Request($TRAVIS_PULL_REQUEST) Tag($TRAVIS_TAG)"
   - if [[ "$TRAVIS_BRANCH" == "master" ]]; then echo -e "Push Container to Docker Hub"; fi
-  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+  - docker login -e=$DOCKER_EMAIL -u=$DOCKER_USER -p=$DOCKER_PASS
   - export REPO=jayjohnson/rails-app
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
   - docker build -f Dockerfile -t $REPO:$COMMIT .
