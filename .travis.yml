@@ -13,3 +13,11 @@ before_install:
 
 script:
   - bundle exec rake test
+
+deploy:
+  after_success:
+    if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+      echo "Tests Passed - Push Container to Docker Hub"
+    else
+      echo "Not uploading to Docker Hub for Branch($TRAVIS_BRANCH) Pull Request($TRAVIS_PULL_REQUEST) Tag($TRAVIS_TAG)"
+    fi
